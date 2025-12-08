@@ -13,7 +13,7 @@ const SkillAdmin = () => {
   // Load saved skills from backend
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/skill")
+      .get("https://mybackend-1mw6.onrender.com/api/skill")
       .then((res) => {
         if (res.data) {
           setForm(res.data);
