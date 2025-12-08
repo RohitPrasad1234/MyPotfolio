@@ -105,12 +105,12 @@ const NavBar = () => {
               <GoArrowRight className="text-lg" />
             </button>
 
-            {/* <button
+          <button
               onClick={() => (window.location.href = "/dashboard")}
               className="fixed top-3 right-5 bg-black text-white px-4  py-2 z-50 rounded"
             >
               Admin Dashboard
-            </button> */}
+            </button> 
           </div>
 
           {/* MOBILE BUTTON */}
