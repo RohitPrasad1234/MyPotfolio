@@ -7,7 +7,7 @@ const SkillsSection = () => {
 
   useEffect(() => {
     axios
-      .get("http://localhost:5000/api/skill")
+      .get("https://mybackend-1mw6.onrender.com/api/skill")
       .then((res) => setSkillData(res.data))
       .catch((err) => console.log(err));
   }, []);
