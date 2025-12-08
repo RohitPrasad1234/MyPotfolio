@@ -21,7 +21,7 @@ const ContactUs = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("http://localhost:5000/api/contact", form);
+      const res = await axios.post("https://mybackend-1mw6.onrender.com/api/contact", form);
       setStatus({ type: "success", text: res.data.message });
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
