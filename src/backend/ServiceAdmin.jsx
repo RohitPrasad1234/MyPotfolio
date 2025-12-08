@@ -8,7 +8,7 @@ const ServiceAdmin = () => {
   ]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/service")
+    axios.get("https://mybackend-1mw6.onrender.com/api/service")
       .then(res => setServices(res.data.length ? res.data : [{ number: "", title: "", desc: "" }]))
       .catch(err => console.log(err));
   }, []);
