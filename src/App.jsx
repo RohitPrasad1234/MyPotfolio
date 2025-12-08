@@ -21,7 +21,7 @@ function App() {
         <Route path="/dashboard/about" element={<AboutAdmin />} />
 
         <Route path="/dashboard/experience" element={<ExperienceAdmin />} />
-        <Route path="/dashbord/skill" element={<SkillAdmin/>}></Route>
+      <Route path="/dashboard/skill" element={<SkillAdmin/>}></Route>
         <Route path="/dashboard/expertise" element={<ServiceAdmin/>}></Route>
         <Route path="/dashboard/work" element={<ProjectAdmin/>}></Route>
         {/* Add others later */}
