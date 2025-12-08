@@ -8,7 +8,7 @@ const ProjectAdmin = () => {
   ]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/project")
+    axios.get("https://mybackend-1mw6.onrender.com/api/project")
       .then(res => {
         if (res.data.length) setProjects(res.data);
       })
