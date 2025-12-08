@@ -14,7 +14,7 @@ const AboutAdmin = () => {
   const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/about")
+    axios.get("https://mybackend-1mw6.onrender.com/api/about")
       .then(res => {
         if (res.data) setForm(res.data);
         setLoading(false);
