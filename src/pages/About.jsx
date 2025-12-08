@@ -5,7 +5,7 @@ const About = () => {
   const [about, setAbout] = useState(null);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/about")
+    axios.get("https://mybackend-1mw6.onrender.com//api/about")
       .then((res) => setAbout(res.data))
       .catch((err) => console.log(err));
   }, []);
