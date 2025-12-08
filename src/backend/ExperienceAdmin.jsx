@@ -8,7 +8,7 @@ const ExperienceAdmin = () => {
 
   // Load existing data
   useEffect(() => {
-    axios.get("http://localhost:5000/api/experience")
+    axios.get("https://mybackend-1mw6.onrender.com/api/experience")
       .then(res => {
         setWork(res.data.filter(item => item.section === "work"));
         setEducation(res.data.filter(item => item.section === "education"));
