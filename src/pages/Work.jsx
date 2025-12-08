@@ -5,7 +5,7 @@ const Work = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/project")
+    axios.get("https://mybackend-1mw6.onrender.com/api/project")
       .then(res => setProjects(res.data))
       .catch(err => console.log(err));
   }, []);
