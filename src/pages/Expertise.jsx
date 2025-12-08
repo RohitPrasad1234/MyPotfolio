@@ -5,7 +5,7 @@ const Expertise = () => {
   const [services, setServices] = useState([]);
 
   useEffect(() => {
-    axios.get("http://localhost:5000/api/service")
+    axios.get("https://mybackend-1mw6.onrender.com/api/service")
       .then(res => setServices(res.data))
       .catch(err => console.log(err));
   }, []);
