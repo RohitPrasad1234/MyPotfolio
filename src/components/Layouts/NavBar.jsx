@@ -1,11 +1,13 @@
 import React, { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import { GoArrowRight } from "react-icons/go";
 import { FiMenu, FiX } from "react-icons/fi";
 // import logo from "../../assets/logo.png";
+
 const NavBar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMenuOpen, setIsMenuOpen] = useState(false);
-
+const navigate = useNavigate(); 
   useEffect(() => {
     const handleScroll = () => {
       setIsScrolled(window.scrollY > 10);
