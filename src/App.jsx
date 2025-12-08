@@ -12,6 +12,7 @@ function App() {
   return (
     <Router>
       <Routes>
+        
         {/* FRONT PAGE */}
         <Route path="/" element={<Home />} />
 
