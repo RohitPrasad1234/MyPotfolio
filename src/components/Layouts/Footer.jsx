@@ -6,7 +6,8 @@ const Footer = () => {
       <div className="pt-20 md:pt-40 px-4">
 
         {/* TOP SECTION */}
-        <div className="flex flex-col md:flex-col lg:flex-row justify-between items-center w-full text-neutral-200">
+       <div className="flex flex-col md:flex-col lg:flex-row justify-center items-center w-full gap-6">
+
 
           {/* LOGO */}
           {/* <a href="#home" className="flex items-center">
