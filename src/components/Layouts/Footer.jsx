@@ -17,7 +17,7 @@ const Footer = () => {
           </a> */}
 
           {/* NAVIGATION LINKS */}
-          <div className="mx-7 my-7 md:my-10 lg:my-0 text-center">
+          <div className="mx-7 my-7 md:my-10 lg:my-0 text-center text-white">
             {[
               { name: "Home", link: "#home" },
               { name: "About", link: "#about" },
