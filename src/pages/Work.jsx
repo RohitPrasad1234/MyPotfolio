@@ -39,10 +39,8 @@ const Work = () => {
           "
         >
           {/* IMAGE */}
-          <div
-            className="h-64 bg-cover bg-center"
-            style={{ backgroundImage: `url(${item.image || ""})` }}
-          ></div>
+          <divclassName="h-[354px] md:h-64 lg:h-72 bg-cover bg-center" style={{ backgroundImage: `url(${item.image || ""})` }}></div>
+
 
           {/* TEXT */}
           <div className="mt-5">
