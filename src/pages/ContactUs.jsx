@@ -54,11 +54,8 @@ const ContactUs = () => {
               </div>
 
               <div className="flex items-center gap-4 pt-3">
-                {/* <SocialIcon icon={<FaFacebookF />} /> */}
-                {/* <SocialIcon icon={<FaDribbble />} /> */}
                 <SocialIcon icon={<FaInstagram />} />
                 <SocialIcon icon={<FaLinkedinIn />} />
-                {/* <SocialIcon icon={<FaBehance />} /> */}
               </div>
             </div>
 
@@ -120,7 +117,8 @@ const ContactUs = () => {
 
 export default ContactUs;
 
-/* Reusable Components */
+
+/* 🔹 Reusable Components */
 const LineInput = ({ name, value, onChange, placeholder }) => (
   <input
     className="border-b border-gray-300 focus:border-[#9b4dff] outline-none p-2"
@@ -131,17 +129,27 @@ const LineInput = ({ name, value, onChange, placeholder }) => (
   />
 );
 
-const InfoBox = ({ icon, label, value }) => (
-  <div className="flex items-center gap-4 bg-white shadow p-4 rounded-md">
-    <div className="text-[#9b4dff] text-2xl">
-      {icon === "email" ? "✉️" : "📞"}
-    </div>
-    <div>
-      <p className="text-gray-500 text-sm">{label}</p>
-      <p className="text-[#132238] text-base font-medium">{value}</p>
-    </div>
-  </div>
-);
+/* 🔹 UPDATED — Click Email / Call Phone */
+const InfoBox = ({ icon, label, value }) => {
+  const href = icon === "email" ? `mailto:${value}` : `tel:${value}`;
+
+  return (
+    <a
+      href={href}
+      className="flex items-center gap-4 bg-white shadow p-4 rounded-md hover:shadow-lg transition"
+    >
+      <div className="text-[#9b4dff] text-2xl">
+        {icon === "email" ? "✉️" : "📞"}
+      </div>
+      <div>
+        <p className="text-gray-500 text-sm">{label}</p>
+        <p className="text-[#132238] text-base font-medium underline">
+          {value}
+        </p>
+      </div>
+    </a>
+  );
+};
 
 const SocialIcon = ({ icon }) => (
   <div className="p-3 rounded-md text-[#9b4dff] hover:bg-[#9b4dff] hover:text-white transition">
