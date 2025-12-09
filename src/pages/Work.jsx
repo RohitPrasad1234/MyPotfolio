@@ -40,7 +40,7 @@ const Work = () => {
         >
           {/* IMAGE */}
           <div
-            className="h-64 bg-cover bg-center w-full h-full"
+            className="h-64 bg-cover bg-center"
             style={{ backgroundImage: `url(${item.image || ""})` }}
           ></div>
 
