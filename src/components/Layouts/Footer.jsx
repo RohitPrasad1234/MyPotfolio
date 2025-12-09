@@ -37,9 +37,9 @@ const Footer = () => {
           </div>
 
           {/* COPYRIGHT */}
-          <p className="text-[12px] sm:text-[16px]">
+          {/* <p className="text-[12px] sm:text-[16px]">
             Copyright © 2025 MyProject.
-          </p>
+          </p> */}
         </div>
 
         {/* SPACING */}
