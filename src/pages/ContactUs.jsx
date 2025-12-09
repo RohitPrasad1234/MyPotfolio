@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from "axios";
-import { FaFacebookF, FaDribbble, FaInstagram, FaLinkedinIn, FaBehance } from "react-icons/fa";
+import { FaLinkedinIn, FaGithub } from "react-icons/fa";
 
 const ContactUs = () => {
   const [form, setForm] = useState({ name: "", email: "", message: "" });
@@ -21,7 +21,10 @@ const ContactUs = () => {
 
     try {
       setLoading(true);
-      const res = await axios.post("https://mybackend-1mw6.onrender.com/api/contact", form);
+      const res = await axios.post(
+        "https://mybackend-1mw6.onrender.com/api/contact",
+        form
+      );
       setStatus({ type: "success", text: res.data.message });
       setForm({ name: "", email: "", message: "" });
     } catch (err) {
@@ -53,25 +56,17 @@ const ContactUs = () => {
                 <InfoBox icon="phone" label="Phone" value="+91 9304322191" />
               </div>
 
-             <div className="flex items-center gap-4 pt-3">
-              <SocialIcon
-                icon={<FaLinkedinIn />}
-                link="https://www.linkedin.com/in/rohit-prasad-439316200"
-              />
-              <SocialIcon
-                icon={
-                  <svg
-                    viewBox="0 0 16 16"
-                    fill="currentColor"
-                    className="w-5 h-5"
-                  >
-                    <path d="M8 0C3.58 0 0 3.58 0 8a8 8 0 005.47 7.6c.4.07.55-.17.55-.38 0-.19-.01-.82-.01-1.49-2.01.37-2.53-.49-2.69-.94-.09-.23-.48-.94-.82-1.13-.28-.15-.68-.52-.01-.53.63-.01 1.08.58 1.23.82.72 1.21 1.87.87 2.33.66.07-.52.28-.87.51-1.07-1.78-.2-3.64-.89-3.64-3.95 0-.87.31-1.59.82-2.15-.08-.2-.36-1.02.08-2.12 0 0 .67-.21 2.2.82a7.64 7.64 0 012 0c1.53-1.04 2.2-.82 2.2-.82.44 1.1.16 1.92.08 2.12.51.56.82 1.27.82 2.15 0 3.07-1.87 3.75-3.65 3.95.29.25.54.73.54 1.49 0 1.08-.01 1.94-.01 2.21 0 .21.15.46.55.38A8 8 0 0016 8c0-4.42-3.58-8-8-8z"/>
-                  </svg>
-                }
-                link="https://github.com/RohitPrasad1234"
-              />
-            </div>
-
+              {/* SOCIAL ICONS */}
+              <div className="flex items-center gap-4 pt-3">
+                <SocialIcon
+                  icon={<FaLinkedinIn />}
+                  link="https://www.linkedin.com/in/rohit-prasad-439316200"
+                />
+                <SocialIcon
+                  icon={<FaGithub />}
+                  link="https://github.com/RohitPrasad1234"
+                />
+              </div>
             </div>
 
             {/* RIGHT SIDE FORM */}
@@ -132,7 +127,6 @@ const ContactUs = () => {
 
 export default ContactUs;
 
-
 /* 🔹 Reusable Components */
 const LineInput = ({ name, value, onChange, placeholder }) => (
   <input
@@ -144,7 +138,7 @@ const LineInput = ({ name, value, onChange, placeholder }) => (
   />
 );
 
-/* 🔹 UPDATED — Click Email / Call Phone */
+/* 🔹 Click Email (mailto) / Phone (tel) */
 const InfoBox = ({ icon, label, value }) => {
   const href = icon === "email" ? `mailto:${value}` : `tel:${value}`;
 
@@ -166,8 +160,14 @@ const InfoBox = ({ icon, label, value }) => {
   );
 };
 
-const SocialIcon = ({ icon }) => (
-  <div className="p-3 rounded-md text-[#9b4dff] hover:bg-[#9b4dff] hover:text-white transition">
+/* 🔹 Social Icons (Open in new tab) */
+const SocialIcon = ({ icon, link }) => (
+  <a
+    href={link}
+    target="_blank"
+    rel="noopener noreferrer"
+    className="p-3 rounded-md text-[#9b4dff] hover:bg-[#9b4dff] hover:text-white transition cursor-pointer"
+  >
     {icon}
-  </div>
+  </a>
 );
