@@ -29,7 +29,7 @@ const Footer = () => {
               <a
                 key={i}
                 href={item.link}
-                className="mx-2 group inline-block relative w-fit text-[12px] sm:text-[16px]"
+                className="mx-2 group inline-block relative w-fit text-[12px] sm:text-[16px] text-white"
               >
                 {item.name}
                 <span className="absolute left-0 bottom-0 h-0.5 w-full bg-white scale-x-0 duration-300 group-hover:scale-x-100"></span>
