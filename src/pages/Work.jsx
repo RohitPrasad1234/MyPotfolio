@@ -18,7 +18,7 @@ const Work = () => {
   };
 
   return (
-    <div className="border w-full h-auto bg-[#FBF8EEFF]">
+    <div className="border  px-4 w-full h-auto bg-[#FBF8EEFF]">
 
       <div className="my-10">
         <div className="border-t-4 border-[#d20458] w-20 mx-auto my-2"></div>
