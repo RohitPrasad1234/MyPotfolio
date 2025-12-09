@@ -11,6 +11,12 @@ const Work = () => {
       .catch((err) => console.log(err));
   }, []);
 
+  const openProject = (link) => {
+    if (link) {
+      window.open(link, "_blank", "noopener,noreferrer");
+    }
+  };
+
   return (
     <div className="border w-full h-auto bg-[#FBF8EEFF]">
 
@@ -24,20 +30,18 @@ const Work = () => {
       {projects.map((item, i) => (
         <div
           key={i}
-          onClick={() => item.link && window.open(item.link, "_blank")}
           className="
             cursor-pointer
             mt-5 md:w-[calc(100%-40%)] mx-auto bg-white rounded-xs shadow border 
             grid grid-cols-1 lg:grid-cols-2 gap-4 mb-10
             transition transform hover:shadow-xl hover:-translate-y-1
           "
+          onClick={() => openProject(item.link)}   // <-- working new tab open
         >
           {/* IMAGE */}
           <div
             className="h-64 bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${item.image || ""})`,
-            }}
+            style={{ backgroundImage: `url(${item.image || ""})` }}
           ></div>
 
           {/* TEXT */}
@@ -55,21 +59,24 @@ const Work = () => {
               <p className="font-thin">{item.desc}</p>
             </div>
 
-            {/* BUTTON (Optional) */}
+            {/* BUTTON (prevents double open) */}
             <div className="px-5 mb-5">
-              <a
-                href={item.link}
-                onClick={(e) => e.stopPropagation()}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="text-white bg-[#d20458] px-4 py-2 rounded hover:bg-pink-700 transition"
-              >
-                Visit Project 🔗
-              </a>
+              {item.link && (
+                <a
+                  href={item.link}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  onClick={(e) => e.stopPropagation()} // prevents double event
+                  className="text-white bg-[#d20458] px-4 py-2 rounded hover:bg-pink-700 transition"
+                >
+                  Visit Project 🔗
+                </a>
+              )}
             </div>
           </div>
         </div>
       ))}
+
     </div>
   );
 };
