@@ -11,9 +11,9 @@ const Work = () => {
       .catch((err) => console.log(err));
   }, []);
 
-  const openProject = (link) => {
-    if (link) {
-      window.open(link, "_blank", "noopener,noreferrer");
+  const openProject = (url) => {
+    if (url) {
+      window.open(url, "_blank", "noopener,noreferrer");
     }
   };
 
@@ -30,13 +30,13 @@ const Work = () => {
       {projects.map((item, i) => (
         <div
           key={i}
+          onClick={() => openProject(item.website)}   // <-- use website field
           className="
             cursor-pointer
             mt-5 md:w-[calc(100%-40%)] mx-auto bg-white rounded-xs shadow border 
             grid grid-cols-1 lg:grid-cols-2 gap-4 mb-10
             transition transform hover:shadow-xl hover:-translate-y-1
           "
-          onClick={() => openProject(item.link)}   // <-- working new tab open
         >
           {/* IMAGE */}
           <div
@@ -59,14 +59,14 @@ const Work = () => {
               <p className="font-thin">{item.desc}</p>
             </div>
 
-            {/* BUTTON (prevents double open) */}
+            {/* BUTTON (works separately without double trigger) */}
             <div className="px-5 mb-5">
-              {item.link && (
+              {item.website && (
                 <a
-                  href={item.link}
+                  href={item.website}
                   target="_blank"
                   rel="noopener noreferrer"
-                  onClick={(e) => e.stopPropagation()} // prevents double event
+                  onClick={(e) => e.stopPropagation()}
                   className="text-white bg-[#d20458] px-4 py-2 rounded hover:bg-pink-700 transition"
                 >
                   Visit Project 🔗
