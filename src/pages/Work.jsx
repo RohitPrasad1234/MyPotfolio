@@ -5,9 +5,10 @@ const Work = () => {
   const [projects, setProjects] = useState([]);
 
   useEffect(() => {
-    axios.get("https://mybackend-1mw6.onrender.com/api/project")
-      .then(res => setProjects(res.data))
-      .catch(err => console.log(err));
+    axios
+      .get("https://mybackend-1mw6.onrender.com/api/project")
+      .then((res) => setProjects(res.data))
+      .catch((err) => console.log(err));
   }, []);
 
   return (
@@ -23,7 +24,13 @@ const Work = () => {
       {projects.map((item, i) => (
         <div
           key={i}
-          className="mt-5 md:w-[calc(100%-40%)] mx-auto bg-white rounded-xs shadow border grid grid-cols-1 lg:grid-cols-2 gap-4 mb-10"
+          onClick={() => item.link && window.open(item.link, "_blank")}
+          className="
+            cursor-pointer
+            mt-5 md:w-[calc(100%-40%)] mx-auto bg-white rounded-xs shadow border 
+            grid grid-cols-1 lg:grid-cols-2 gap-4 mb-10
+            transition transform hover:shadow-xl hover:-translate-y-1
+          "
         >
           {/* IMAGE */}
           <div
@@ -47,11 +54,22 @@ const Work = () => {
             <div className="px-5 my-5">
               <p className="font-thin">{item.desc}</p>
             </div>
-          </div>
 
+            {/* BUTTON (Optional) */}
+            <div className="px-5 mb-5">
+              <a
+                href={item.link}
+                onClick={(e) => e.stopPropagation()}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-white bg-[#d20458] px-4 py-2 rounded hover:bg-pink-700 transition"
+              >
+                Visit Project 🔗
+              </a>
+            </div>
+          </div>
         </div>
       ))}
-
     </div>
   );
 };
