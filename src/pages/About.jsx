@@ -60,9 +60,13 @@ const About = () => {
           Hire Me
         </button> */}
 
-        <button className="bg-black text-white py-4 text-sm tracking-[4px] uppercase hover:bg-[#950000] transition">
-          Download CV
-        </button>
+       <a
+  href={about.cv}
+  download="Rohit_Prasad_CV.pdf"
+  className="bg-black text-white py-4 text-sm tracking-[4px] uppercase hover:bg-[#950000] transition text-center"
+>
+  Download CV
+</a>
       </div>
     </section>
   );
