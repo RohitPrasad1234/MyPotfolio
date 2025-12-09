@@ -9,11 +9,11 @@ const Footer = () => {
         <div className="flex flex-col md:flex-col lg:flex-row justify-between items-center w-full text-neutral-200">
 
           {/* LOGO */}
-          <a href="#home" className="flex items-center">
+          {/* <a href="#home" className="flex items-center">
             <p className="text-3xl sm:text-[32px] ms-3 font-semibold">
               MyProject.
             </p>
-          </a>
+          </a> */}
 
           {/* NAVIGATION LINKS */}
           <div className="mx-7 my-7 md:my-10 lg:my-0 text-center">
