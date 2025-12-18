@@ -1,18 +1,49 @@
-import React, { useEffect, useState } from "react";
-import axios from "axios";
+import React from "react";
 import { BsBriefcase, BsMortarboard } from "react-icons/bs";
 
 const Experience = () => {
-  const [work, setWork] = useState([]);
-  const [education, setEducation] = useState([]);
 
-  useEffect(() => {
-    axios.get("https://mybackend-1mw6.onrender.com/api/experience")
-      .then(res => {
-        setWork(res.data.filter(item => item.section === "work"));
-        setEducation(res.data.filter(item => item.section === "education"));
-      });
-  }, []);
+  const work = [
+    {
+      year: "June 2025 — Present",
+      company: "S.R Infotech Solution",
+      role: "Laravel Developer",
+      desc: "Developing backend features and business logic using Laravel & PHP. Integrating and managing complex REST APIs, optimizing MySQL performance, collaborating with UI/UX teams, handling deployment, debugging, and version control using Git."
+    },
+    {
+      year: "Oct 2024 — Apr 2025",
+      company: "Softonix MR Technologies Pvt. Ltd.",
+      role: "Laravel Developer",
+      desc: "Developed scalable Laravel applications, integrated APIs including Stripe 3DS authentication, managed relational database design, collaborated with frontend and API integration teams, optimized performance, and improved security."
+    },
+    {
+      year: "Jun 2023 — Feb 2024",
+      company: "Kodnest — Trainee Software Engineer",
+      role: "Full Stack Developer",
+      desc: "Developed backend systems with Java, Node.js, Express.js, and MySQL; built responsive UI with HTML, CSS, JavaScript, jQuery, Bootstrap; integrated APIs and built Twilio-based features."
+    },
+    {
+      year: "Jan 2023 — Feb 2023",
+      company: "Adityapur Auto Cluster",
+      role: "PHP Full Stack Developer Trainee",
+      desc: "Built an online e-learning portal using PHP, MySQL, Bootstrap, and implemented UI/UX and authentication system."
+    }
+  ];
+
+  const education = [
+    {
+      year: "Jan 2024 — Present",
+      company: "Jain University, Bangalore",
+      role: "Master of Computer Applications (Full Stack Development)",
+      desc: "Currently pursuing MCA with focus on full-stack development, backend engineering, and scalable web applications."
+    },
+    {
+      year: "2020 — 2023",
+      company: "Arka Jain University, Jharkhand",
+      role: "Bachelor of Computer Application",
+      desc: "Graduated with 80.18% and gained strong foundation in programming, database management, and software development."
+    }
+  ];
 
   return (
     <section className="bg-gray-200 flex justify-center py-24">
@@ -27,12 +58,18 @@ const Experience = () => {
         </div>
 
         <div className="grid grid-cols-1 md:grid-cols-2 gap-10">
-          
+
           {/* WORK */}
           <div>
             <TimelineIcon icon={<BsBriefcase size={22} />} />
             {work.map((item, i) => (
-              <TimelineCard key={i} year={item.year} title={item.company} role={item.role} desc={item.desc} />
+              <TimelineCard
+                key={i}
+                year={item.year}
+                title={item.company}
+                role={item.role}
+                desc={item.desc}
+              />
             ))}
           </div>
 
@@ -40,17 +77,25 @@ const Experience = () => {
           <div>
             <TimelineIcon icon={<BsMortarboard size={22} />} />
             {education.map((item, i) => (
-              <TimelineCard key={i} year={item.year} title={item.company} role={item.role} desc={item.desc} />
+              <TimelineCard
+                key={i}
+                year={item.year}
+                title={item.company}
+                role={item.role}
+                desc={item.desc}
+              />
             ))}
           </div>
-        </div>
 
+        </div>
       </div>
     </section>
   );
 };
 
 export default Experience;
+
+/* ---------- Components ---------- */
 
 const TimelineIcon = ({ icon }) => (
   <div className="flex justify-center mb-8">
